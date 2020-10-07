@@ -9,14 +9,7 @@ const Layout = ({ children }) => {
 	const [
 		darkMode,
 		setDarkMode
-	] = useState(false);
-
-	useEffect(() => {
-		/**
-         * set app theme from local storage
-         */
-		setDarkMode(getTheme());
-	}, []);
+	] = useState(getTheme());
 
 	/**
      * utility function to toggle theme

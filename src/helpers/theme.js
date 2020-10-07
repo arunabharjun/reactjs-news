@@ -22,3 +22,5 @@ export const setThemeLight = () => {
 export const getTheme = () => {
 	return getLocalStorage(`${THEME}`);
 };
+
+
