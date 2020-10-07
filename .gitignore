@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+reactjs-news.code-workspace
+*.code-workspace
 
 # testing
 /coverage
