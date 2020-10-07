@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { setThemeDark, setThemeLight } from '../helpers/theme';
 import { ThemeContext } from '../helpers/ThemeContext';
 import NavBar from './NavBar';
 
