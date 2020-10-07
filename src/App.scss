@@ -4,22 +4,24 @@
 .darkMode {
 	--bg: #111111;
 	--clr: #ebebeb;
-	--blue: #008eec;
+	--blue: #559ef1;
 	--nav-bg: #202020;
 	--nav-shadow: transparent;
 	--nav-border: rgba(255, 255, 255, 0.05);
 	--theme-icon: #000;
+	--search-icon: #000;
 	transition: all 0.3s !important;
 }
 
 .liteMode {
 	--bg: #f1f1f1;
 	--clr: #111111;
-	--blue: #0050c9;
+	--blue: #004ca3;
 	--nav-bg: #fff;
 	--nav-shadow: 0 0px 5px 3px rgba(0, 0, 0, 0.08);
 	--nav-border: transparent;
 	--theme-icon: rgb(250, 210, 99);
+	--search-icon: #d3d3d3;
 	transition: all 0.3s !important;
 }
 
@@ -29,10 +31,29 @@
 	--transition-duration: all 0.2s ease;
 }
 
+// utilities
+.accent-clr {
+	color: var(--blue);
+}
+
+.flex-box {
+	display: flex;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-space-btw {
+	justify-content: space-between;
+	align-items: center !important;
+}
+
+// class definations
 * {
 	margin: 0;
 	padding: 0;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif !important;
 	scroll-behavior: smooth;
 	color: var(--clr);
 
@@ -75,13 +96,36 @@ nav {
 	width: 100%;
 	position: fixed;
 	.nav-body {
+		width: 100%;
 		height: var(--navHeight);
 		background-color: var(--nav-bg);
 		box-shadow: var(--nav-shadow);
 		border: 1px solid var(--nav-border);
+		button {
+			width: var(--navHeight);
+			height: var(--navHeight);
+			svg {
+				position: relative;
+				top: 1px;
+			}
+		}
 		.theme-toggle {
 			svg {
 				fill: var(--theme-icon);
+			}
+		}
+		.search-icon {
+			svg {
+				fill: var(--search-icon);
+			}
+		}
+		.nav-brand {
+			.name {
+				font-weight: 700;
+				font-size: 110%;
+				height: var(--navHeight);
+				position: relative;
+				top: 6px;
 			}
 		}
 	}
@@ -96,6 +140,9 @@ nav {
 	nav {
 		bottom: 0px;
 		left: 0px;
+		.container {
+			padding: 0 !important;
+		}
 	}
 
 	main {

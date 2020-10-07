@@ -4,6 +4,7 @@
 reactjs-news.code-workspace
 *.code-workspace
 .env
+/icons
 
 # dependencies
 /node_modules
