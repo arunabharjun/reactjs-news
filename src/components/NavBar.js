@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { setThemeDark, setThemeLight } from '../helpers/theme';
 import { ThemeContext } from '../helpers/ThemeContext';
+import { MoonIcon, SunIcon } from './Icons';
 
 const NavBar = () => {
 	/**
@@ -27,7 +28,20 @@ const NavBar = () => {
 		setDarkMode(!darkMode);
 	};
 
-	return <button onClick={toggleTheme}>theme</button>;
+	return (
+		<React.Fragment>
+			<nav>
+				<div className='nav-body'>
+					<div className='container'>
+						<button className='theme-toggle' onClick={toggleTheme}>
+							{darkMode && <MoonIcon />}
+							{!darkMode && <SunIcon />}
+						</button>
+					</div>
+				</div>
+			</nav>
+		</React.Fragment>
+	);
 };
 
 export default NavBar;

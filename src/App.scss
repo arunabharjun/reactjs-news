@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+// theme variables
 .darkMode {
 	--bg: #111111;
 	--clr: #ebebeb;
@@ -7,6 +8,7 @@
 	--nav-bg: #202020;
 	--nav-shadow: transparent;
 	--nav-border: rgba(255, 255, 255, 0.05);
+	--theme-icon: #000;
 	transition: all 0.3s !important;
 }
 
@@ -17,6 +19,7 @@
 	--nav-bg: #fff;
 	--nav-shadow: 0 0px 5px 3px rgba(0, 0, 0, 0.08);
 	--nav-border: transparent;
+	--theme-icon: rgb(250, 210, 99);
 	transition: all 0.3s !important;
 }
 
@@ -32,6 +35,27 @@
 	font-family: 'Open Sans', sans-serif;
 	scroll-behavior: smooth;
 	color: var(--clr);
+
+	button {
+		border-color: transparent;
+		background-color: transparent;
+		-webkit-transition: all 0.3s ease;
+		outline: none !important;
+		color: var(--clr) !important;
+		text-transform: uppercase !important;
+		cursor: pointer;
+	}
+	button:active {
+		transform: scale(0.95) !important;
+		-webkit-transition: var(--transition-duration);
+		transition: var(--transition-duration);
+	}
+
+	button:hover {
+		transform: scale(1.03);
+		-webkit-transition: var(--transition-duration);
+		transition: var(--transition-duration);
+	}
 }
 
 body,
@@ -42,7 +66,62 @@ html {
 
 main {
 	width: 100vw;
-	min-height: 100vh;
+	min-height: 150vh;
 	background-color: var(--bg);
 	color: var(--clr);
+}
+
+nav {
+	width: 100%;
+	position: fixed;
+	.nav-body {
+		height: var(--navHeight);
+		background-color: var(--nav-bg);
+		box-shadow: var(--nav-shadow);
+		border: 1px solid var(--nav-border);
+		.theme-toggle {
+			svg {
+				fill: var(--theme-icon);
+			}
+		}
+	}
+}
+
+// small devices
+@media only screen and (max-width: 775px) {
+	.phone-hide {
+		display: none;
+	}
+
+	nav {
+		bottom: 0px;
+		left: 0px;
+	}
+
+	main {
+		padding-bottom: 56px;
+	}
+}
+
+/* even smaller divices */
+@media only screen and (max-width: 360px) {
+	.phone-small-hide {
+		display: none !important;
+	}
+}
+
+/* only desktop */
+@media only screen and (min-width: 775px) {
+	.phone-view {
+		display: none !important;
+	}
+
+	nav {
+		top: 0px;
+		left: 0px;
+	}
+
+	main {
+		padding-top: 56px;
+	}
 }
