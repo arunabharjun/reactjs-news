@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.scss';
 import Routes from './Routes';
+import { ThemeProvider } from './helpers/ThemeContext';
 
 function App() {
 	return (
 		<React.Fragment>
-			<Routes />
+			<ThemeProvider>
+				<Routes />
+			</ThemeProvider>
 		</React.Fragment>
 	);
 }

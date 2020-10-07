@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { getTheme, setThemeDark, setThemeLight } from '../helpers/theme';
-import Navigation from './Navigation';
+import React, { useContext } from 'react';
+import { setThemeDark, setThemeLight } from '../helpers/theme';
+import { ThemeContext } from '../helpers/ThemeContext';
+import NavBar from './NavBar';
 
 const Layout = ({ children }) => {
 	/**
@@ -9,29 +10,12 @@ const Layout = ({ children }) => {
 	const [
 		darkMode,
 		setDarkMode
-	] = useState(getTheme());
-
-	/**
-     * utility function to toggle theme
-     */
-	const toggleTheme = () => {
-		/**
-         * Save theme in local storage
-         */
-		if (darkMode) setThemeLight();
-		else setThemeDark();
-
-		/**
-         * change local state
-         */
-		setDarkMode(!darkMode);
-	};
+	] = useContext(ThemeContext);
 
 	return (
 		<React.Fragment>
 			<main className={`${darkMode ? 'darkMode' : 'liteMode'}`}>
-				<Navigation />
-				<button onClick={() => toggleTheme()}>theme</button>
+				<NavBar />
 				{children}
 			</main>
 		</React.Fragment>
