@@ -1,8 +1,13 @@
 import React from 'react';
 import './App.scss';
+import Routes from './Routes';
 
 function App() {
-	return <h1>Hello World !</h1>;
+	return (
+		<React.Fragment>
+			<Routes />
+		</React.Fragment>
+	);
 }
 
 export default App;
