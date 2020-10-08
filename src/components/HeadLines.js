@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getHeadLines } from '../helpers/newsApi';
-
+import { NewsItemCard } from './Card';
 const HeadLines = () => {
 	/**
 	 * State for headlines
@@ -12,7 +12,7 @@ const HeadLines = () => {
 
 	useEffect(() => {
 		/**
-		 * Initialise the headings
+		 * Initialise the headlines
 		 * as soon as the page loads
 		 */
 		initHeadlines();
@@ -31,7 +31,28 @@ const HeadLines = () => {
 			});
 	};
 
-	return <React.Fragment>{JSON.stringify(headlines)}</React.Fragment>;
+	/**
+     * Passing all the headlines to the 
+     * NewsItemCard component individually
+     */
+	const renderHeadlines = (headlines) => {
+		return (
+			<React.Fragment>
+				{headlines.map((newsItem) => {
+					return (
+						<NewsItemCard key={newsItem.source.name}>
+							{newsItem}
+						</NewsItemCard>
+					);
+				})}
+			</React.Fragment>
+		);
+	};
+
+	/**
+     * Rendering all the headlines
+     */
+	return <React.Fragment>{renderHeadlines(headlines)}</React.Fragment>;
 };
 
 export default HeadLines;
