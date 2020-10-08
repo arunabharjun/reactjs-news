@@ -1,16 +1,24 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 export const NewsItemCard = ({ children }) => {
 	/**
      * Destructuring children prop
      */
-	const { title, urlToImage, source, description, publishedAt } = children;
+	const {
+		title,
+		urlToImage,
+		source,
+		description,
+		publishedAt,
+		url
+	} = children;
 
 	/**
      * The top banner image of news item
      */
-	const bannerImage = (url) => {
+	const bannerImage = (imgUrl) => {
 		return (
 			<React.Fragment>
 				{/**
@@ -19,7 +27,7 @@ export const NewsItemCard = ({ children }) => {
 				<div
 					className='banner-img'
 					style={{
-						backgroundImage: `url(${url})`
+						backgroundImage: `url(${imgUrl})`
 					}}
 				>
 					{/**
@@ -72,10 +80,12 @@ export const NewsItemCard = ({ children }) => {
 		return (
 			<React.Fragment>
 				<div className='news-item'>
-					<div className='news-body'>
-						{bannerImage(urlToImage)}
-						{newsContent()}
-					</div>
+					<Link to={`/article?${url}`}>
+						<div className='news-body'>
+							{bannerImage(urlToImage)}
+							{newsContent()}
+						</div>
+					</Link>
 				</div>
 			</React.Fragment>
 		);
