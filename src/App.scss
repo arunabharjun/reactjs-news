@@ -6,10 +6,12 @@
 	--bg: #111111;
 	--clr: #ebebeb;
 	--clr-muted: #dadada;
+	--clr-muted-max: #818181;
 	--blue: #559ef1;
 	--nav-bg: #202020;
 	--nav-shadow: transparent;
 	--nav-border: rgba(255, 255, 255, 0.05);
+	--card-shadow: transparent;
 	--theme-icon: #000;
 	--search-icon: #000;
 	--card-grad1: rgba(32, 32, 32, 1) 0%;
@@ -22,10 +24,12 @@
 	--bg: #f1f1f1;
 	--clr: #111111;
 	--clr-muted: #504f4f;
+	--clr-muted-max: #a09f9f;
 	--blue: #004ca3;
 	--nav-bg: #fff;
 	--nav-shadow: 0 0px 5px 3px rgba(0, 0, 0, 0.08);
 	--nav-border: transparent;
+	--card-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.05);
 	--theme-icon: rgb(250, 210, 99);
 	--search-icon: #e2e2e2;
 	--card-grad1: rgba(255, 255, 255, 1) 0%;
@@ -153,7 +157,7 @@ nav {
 		background-color: var(--nav-bg);
 		border-radius: 10px;
 		border: solid 1px var(--nav-border);
-		box-shadow: var(--nav-shadow);
+		box-shadow: var(--card-shadow);
 		overflow: hidden;
 		.banner-img {
 			width: 100%;
@@ -228,12 +232,67 @@ nav {
 	align-items: center;
 	box-shadow: 0 0px 5px 3px rgba(0, 0, 0, 0.08);
 
-	a {
+	p {
+		padding-top: 14px;
 		display: flex;
 		color: var(--bg);
 		font-weight: 600;
 		svg {
 			stroke: var(--bg) !important;
+		}
+	}
+}
+
+.search-btn-card {
+	width: 100%;
+	margin: 30px 0 20px 0;
+	.search-btn-card-body {
+		background-color: var(--nav-bg);
+		height: var(--navHeight);
+		border-radius: 100px;
+		border: solid 1px var(--nav-border);
+		box-shadow: var(--card-shadow);
+		padding: 14px 20px;
+		p {
+			display: flex;
+			justify-content: space-between;
+			span {
+				color: var(--clr-muted-max);
+				svg {
+					stroke: var(--clr-muted-max);
+				}
+			}
+		}
+	}
+}
+
+.search-form {
+	margin-top: 30px;
+	form {
+		display: flex;
+		justify-content: space-between;
+		input {
+			width: calc(100% - var(--navHeight) - 10px);
+			height: var(--navHeight);
+			border-radius: 100px;
+			border: solid 1px var(--nav-border);
+			box-shadow: var(--card-shadow);
+			background-color: var(--nav-bg);
+			outline: none !important;
+			padding: 0 20px;
+		}
+		button {
+			padding-top: 2px;
+			width: var(--navHeight);
+			height: var(--navHeight);
+			border-radius: 100%;
+			border: solid 1px var(--nav-border);
+			box-shadow: var(--card-shadow);
+			background-color: var(--blue);
+			outline: none !important;
+			svg {
+				stroke: var(--bg);
+			}
 		}
 	}
 }
@@ -272,7 +331,7 @@ nav {
 	.article-back-btn {
 		top: 0;
 		width: 100%;
-		a {
+		p {
 			position: relative;
 			left: -9px;
 			svg {
@@ -333,7 +392,7 @@ nav {
 		border-radius: 300px;
 		margin-left: 15px;
 		margin-bottom: 15px;
-		a {
+		p {
 			display: flex;
 			span {
 				color: var(--bg);

@@ -38,12 +38,8 @@ const HeadLines = () => {
 	const renderHeadlines = (headlines) => {
 		return (
 			<React.Fragment>
-				{headlines.map((newsItem) => {
-					return (
-						<NewsItemCard key={newsItem.source.name}>
-							{newsItem}
-						</NewsItemCard>
-					);
+				{headlines.map((newsItem, i) => {
+					return <NewsItemCard key={i}>{newsItem}</NewsItemCard>;
 				})}
 			</React.Fragment>
 		);

@@ -22,11 +22,13 @@ const ArticleIframe = ({ url }) => {
 	const backButton = () => {
 		return (
 			<React.Fragment>
-				<div className='article-back-btn'>
-					<Link to={'/'}>
-						<LeftChevron size={25} /> Back
-					</Link>
-				</div>
+				<Link to={'/'}>
+					<div className='article-back-btn'>
+						<p className=''>
+							<LeftChevron size={25} /> Back
+						</p>
+					</div>
+				</Link>
 			</React.Fragment>
 		);
 	};

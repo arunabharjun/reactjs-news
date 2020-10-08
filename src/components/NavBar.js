@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { setThemeDark, setThemeLight } from '../helpers/theme';
 import { ThemeContext } from '../helpers/ThemeContext';
 import { MoonIcon, SunIcon, SearchIcon } from './Icons';
@@ -55,21 +56,23 @@ const NavBar = () => {
 	const brandName = () => {
 		return (
 			<React.Fragment>
-				<p className='nav-brand'>
-					{/**
+				<Link to={'/'}>
+					<p className='nav-brand'>
+						{/**
 					 * Show the full brandname in desktops
 					 */}
-					<span className='name phone-hide'>
-						React <span className='accent-clr'>News</span>
-					</span>
+						<span className='name phone-hide'>
+							React <span className='accent-clr'>News</span>
+						</span>
 
-					{/**
+						{/**
 					 * Show the short brandname in phones
 					 */}
-					<span className='name phone-view'>
-						R<span className='accent-clr'>N</span>
-					</span>
-				</p>
+						<span className='name phone-view'>
+							R<span className='accent-clr'>N</span>
+						</span>
+					</p>
+				</Link>
 			</React.Fragment>
 		);
 	};
@@ -80,9 +83,11 @@ const NavBar = () => {
 	const searchButton = () => {
 		return (
 			<React.Fragment>
-				<button className='search-icon'>
-					<SearchIcon />
-				</button>
+				<Link to={'/search'}>
+					<button className='search-icon'>
+						<SearchIcon />
+					</button>
+				</Link>
 			</React.Fragment>
 		);
 	};

@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { SearchIcon } from './Icons';
 
 export const NewsItemCard = ({ children }) => {
 	/**
@@ -95,4 +96,34 @@ export const NewsItemCard = ({ children }) => {
      * Rendering the news item card
      */
 	return <React.Fragment>{newsItem()}</React.Fragment>;
+};
+
+export const SearchButtonCard = () => {
+	/**
+     * A card to act like a button
+     * that redirects to the search page
+     */
+	const searchBtnCard = () => {
+		return (
+			<React.Fragment>
+				<div className='search-btn-card'>
+					<Link to={'/search'}>
+						<div className='search-btn-card-body'>
+							<p className=''>
+								<span>Search news </span>
+								<span>
+									<SearchIcon />
+								</span>
+							</p>
+						</div>
+					</Link>
+				</div>
+			</React.Fragment>
+		);
+	};
+
+	/**
+     * Rendering the card
+     */
+	return <React.Fragment>{searchBtnCard()}</React.Fragment>;
 };

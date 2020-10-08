@@ -25,6 +25,28 @@ export const getHeadLines = (country = 'in', pageSize = 10, page = 0) => {
 		});
 };
 
+export const getSearchResult = (q = 'india', pageSize = 10, page = 0) => {
+	return axios
+		.get(searchApi, {
+			params: {
+				q,
+				pageSize,
+				page: 1 + page
+			},
+			headers: {
+				'X-Api-Key': API_KEY
+			}
+		})
+		.then((response) => {
+			console.log(response.data.articles);
+			return response.data.articles;
+			// return demo;
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+};
+
 const demo = [
 	{
 		source: { id: null, name: 'NDTV News' },
