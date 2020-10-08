@@ -1,3 +1,4 @@
+// font
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 // theme variables
@@ -150,14 +151,14 @@ nav {
 	}
 }
 
-/* even smaller divices */
+// even smaller divices
 @media only screen and (max-width: 360px) {
 	.phone-small-hide {
 		display: none !important;
 	}
 }
 
-/* only desktop */
+// only desktop
 @media only screen and (min-width: 775px) {
 	.phone-view {
 		display: none !important;
