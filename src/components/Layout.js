@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from '../helpers/ThemeContext';
+import { ThemeContext } from './ThemeContext';
 import NavBar from './NavBar';
 
 const Layout = ({ children }) => {
