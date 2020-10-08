@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 import Layout from '../components/Layout';
 import SearchComponent from '../components/SearchComponent';
 
@@ -8,6 +9,7 @@ const Search = () => {
 			<Layout>
 				<div className='container'>
 					<SearchComponent />
+					<Footer />
 				</div>
 			</Layout>
 		</React.Fragment>

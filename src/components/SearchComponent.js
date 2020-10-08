@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { getSearchResult } from '../helpers/newsApi';
-import { NewsItemCard } from './Card';
+import { LoadingCard, NewsItemCard } from './Card';
 import { SearchIcon } from './Icons';
+import IllustrationBox from './IllustrationBox';
+import SearchSvg from './illustrations/SearchSvg';
+import ShowError from './ShowError';
 
 const SearchComponent = () => {
 	/**
@@ -21,10 +24,35 @@ const SearchComponent = () => {
 	] = useState([]);
 
 	/**
+     * State to check searching status
+     */
+	const [
+		searching,
+		setSearching
+	] = useState(false);
+
+	/**
+     * State to check errors
+     */
+	const [
+		error,
+		setError
+	] = useState(false);
+
+	/**
+     * State for result query
+     */
+	const [
+		resultQuery,
+		setResultQuery
+	] = useState('');
+
+	/**
      * Utility function to handle changes
      * in the search input field
      */
 	const handleChange = (value) => {
+		setError(false);
 		setQuery(value);
 	};
 
@@ -39,13 +67,41 @@ const SearchComponent = () => {
          */
 		e.preventDefault();
 
-		getSearchResult(query)
-			.then((data) => {
-				setNewsItems(data);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+		/**
+         * Check if query is empty or has only white spaces
+         */
+		if (!query.replace(/\s/g, '').length) {
+			/**
+             * if query is empty, reset query
+             */
+			setQuery('');
+		}
+		else {
+			/**
+             * If query is not empty,
+             * execute the search
+             */
+			setError(false);
+			setSearching(true);
+			setResultQuery(query);
+			getSearchResult(query)
+				.then((data) => {
+					setNewsItems(data);
+					if (!data.error) {
+						setSearching(false);
+						setQuery('');
+					}
+					else {
+						setSearching(false);
+						setError(true);
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+					setSearching(false);
+					setError(true);
+				});
+		}
 	};
 
 	/**
@@ -63,12 +119,13 @@ const SearchComponent = () => {
 							value={query}
 							autoFocus
 							placeholder={'Search news'}
+							disabled={searching}
 							onChange={(e) => {
 								handleChange(e.target.value);
 							}}
 						/>
 
-						<button type='submit'>
+						<button type='submit' disabled={searching}>
 							<SearchIcon />
 						</button>
 					</form>
@@ -84,9 +141,49 @@ const SearchComponent = () => {
 	const renderSearchResults = (newsItems) => {
 		return (
 			<React.Fragment>
+				{newsItems.length > 0 && header()}
 				{newsItems.map((newsItem, i) => {
 					return <NewsItemCard key={i}>{newsItem}</NewsItemCard>;
 				})}
+			</React.Fragment>
+		);
+	};
+
+	/**
+	 * Page header
+	 */
+	const header = () => {
+		return (
+			<React.Fragment>
+				<div className='page-header'>
+					<h2 className='page-heading'>Search results</h2>
+					<p className=''>Query : {resultQuery}</p>
+				</div>
+			</React.Fragment>
+		);
+	};
+
+	/**
+     * Showing search illustration when
+     * page is empty
+     */
+	const searchSvg = () => {
+		return (
+			<React.Fragment>
+				<IllustrationBox>
+					<SearchSvg />
+				</IllustrationBox>
+			</React.Fragment>
+		);
+	};
+
+	/**
+     * Show the user that there is some error
+     */
+	const errorSvg = () => {
+		return (
+			<React.Fragment>
+				<ShowError />
 			</React.Fragment>
 		);
 	};
@@ -102,9 +199,27 @@ const SearchComponent = () => {
 			{searchInput()}
 
 			{/**
+              * Show illustration
+              */}
+			{!error && !searching && newsItems.length < 1 && searchSvg()}
+
+			{/**
+               * Show loading card
+               */}
+			{!error && searching && <LoadingCard />}
+
+			{/**
+                * Show error if there is any
+                */}
+			{error && !searching && errorSvg()}
+
+			{/**
              * Show search result
              */}
-			{renderSearchResults(newsItems)}
+			{!error &&
+				!searching &&
+				newsItems.length > 0 &&
+				renderSearchResults(newsItems)}
 		</React.Fragment>
 	);
 };

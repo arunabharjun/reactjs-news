@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { LoadingCard } from './Card';
 import { LeftChevron } from './Icons';
 
 const ArticleIframe = ({ url }) => {
+	/**
+	 * State to check loading status
+	 * of the iframe
+	 */
+	const [
+		loading,
+		setLoading
+	] = useState(true);
+
 	/**
      * The iframe which renders selected article
      */
@@ -10,7 +20,12 @@ const ArticleIframe = ({ url }) => {
 		return (
 			<React.Fragment>
 				<div className='article-iframe'>
-					<iframe src={url} frameborder='0' />
+					<iframe
+						title={'article'}
+						src={url}
+						frameborder='0'
+						onLoad={() => setLoading(false)}
+					/>
 				</div>
 			</React.Fragment>
 		);
@@ -40,6 +55,7 @@ const ArticleIframe = ({ url }) => {
 		return (
 			<React.Fragment>
 				{articleFrame()}
+				{loading && <LoadingCard />}
 				{backButton()}
 			</React.Fragment>
 		);

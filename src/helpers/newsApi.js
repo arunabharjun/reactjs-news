@@ -22,6 +22,7 @@ export const getHeadLines = (country = 'in', pageSize = 10, page = 0) => {
 		})
 		.catch((error) => {
 			console.log(error);
+			return { error: true };
 		});
 };
 
@@ -38,12 +39,12 @@ export const getSearchResult = (q = 'india', pageSize = 10, page = 0) => {
 			}
 		})
 		.then((response) => {
-			console.log(response.data.articles);
 			return response.data.articles;
 			// return demo;
 		})
 		.catch((error) => {
 			console.log(error);
+			return { error: true };
 		});
 };
 

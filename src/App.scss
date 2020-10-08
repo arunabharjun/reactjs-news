@@ -17,6 +17,8 @@
 	--card-grad1: rgba(32, 32, 32, 1) 0%;
 	--card-grad2: rgba(32, 32, 32, 0.75) 44%;
 	--card-grad3: rgba(247, 247, 247, 0) 100%;
+	--shimmer-loader: rgba(255, 255, 255, 0.15);
+	--hr: rgba(255, 255, 255, 0.1);
 	transition: all 0.3s !important;
 }
 
@@ -35,6 +37,8 @@
 	--card-grad1: rgba(255, 255, 255, 1) 0%;
 	--card-grad2: rgba(255, 255, 255, 0.75) 44%;
 	--card-grad3: rgba(247, 247, 247, 0) 100%;
+	--shimmer-loader: rgba(0, 0, 0, 0.06);
+	--hr: rgba(0, 0, 0, 0.1);
 	transition: all 0.3s !important;
 }
 
@@ -60,6 +64,22 @@
 .flex-space-btw {
 	justify-content: space-between;
 	align-items: center !important;
+}
+
+.shift-svg-fill-blue {
+	fill: var(--blue);
+}
+
+.shift-svg-fill-bg {
+	fill: var(--nav-bg);
+}
+
+.shift-svh-fill-muted {
+	fill: var(--clr-muted-max);
+}
+
+.shift-svh-fill-clr {
+	fill: var(--clr);
 }
 
 // class definations
@@ -93,6 +113,11 @@
 
 	a {
 		text-decoration: none !important;
+		color: var(--blue) !important;
+	}
+
+	hr {
+		border-color: var(--hr) !important;
 	}
 }
 
@@ -297,6 +322,66 @@ nav {
 	}
 }
 
+.loading-card {
+	width: 100%;
+	height: 300px;
+	border: solid 1px var(--nav-border);
+	border-radius: 10px;
+	box-shadow: var(--card-shadow);
+	background: var(--nav-bg);
+	margin-bottom: 20px;
+}
+
+.page-heading {
+	display: block;
+	text-transform: uppercase;
+	font-size: 120%;
+	font-weight: 600;
+	color: var(--clr-muted);
+}
+
+.page-header {
+	padding: 0 5px;
+	margin-top: 35px;
+	p {
+		font-size: 12px;
+		color: var(--clr-muted-max);
+		font-weight: 700;
+	}
+}
+
+.illustration-box {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin-top: 10vh;
+	svg {
+		max-width: 200px;
+		height: 20vh;
+	}
+}
+
+.error-msg {
+	text-align: center;
+	color: var(--clr-muted-max);
+	font-weight: 700;
+	margin-top: 20px;
+}
+
+footer {
+	margin: 20px 0;
+	font-size: 12px;
+	color: var(--clr-muted-max);
+	font-weight: 800;
+	text-align: center;
+	a {
+		color: var(--blue);
+	}
+}
+
 // small devices
 @media only screen and (max-width: 775px) {
 	.phone-hide {
@@ -409,5 +494,27 @@ nav {
 		iframe {
 			height: calc(100vh - var(--navHeight));
 		}
+	}
+}
+
+// shimmer loding
+.shimmer-loading {
+	animation: shimmer 2s infinite linear;
+	background: linear-gradient(
+		to right,
+		var(--nav-bg) 4%,
+		var(--shimmer-loader) 25%,
+		var(--nav-bg) 36%
+	);
+	background-size: 1000px 100%;
+	border-radius: 5px;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -1000px 0;
+	}
+	100% {
+		background-position: 1000px 0;
 	}
 }

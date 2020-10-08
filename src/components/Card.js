@@ -127,3 +127,23 @@ export const SearchButtonCard = () => {
      */
 	return <React.Fragment>{searchBtnCard()}</React.Fragment>;
 };
+
+export const LoadingCard = () => {
+	/**
+	 * Showing 3 loading cards
+	 */
+	const loaingCard = () => {
+		return (
+			<React.Fragment>
+				<div className='shimmer-loading loading-card' />
+				<div className='shimmer-loading loading-card' />
+				<div className='shimmer-loading loading-card' />
+			</React.Fragment>
+		);
+	};
+
+	/**
+	 * Rendering loading cards
+	 */
+	return <React.Fragment>{loaingCard()}</React.Fragment>;
+};
