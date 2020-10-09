@@ -40,6 +40,15 @@ const SearchComponent = () => {
 	] = useState(false);
 
 	/**
+	 * Check if search was performed
+	 */
+
+	const [
+		searched,
+		setSearched
+	] = useState(false);
+
+	/**
      * State for result query
      */
 	const [
@@ -81,6 +90,7 @@ const SearchComponent = () => {
              * If query is not empty,
              * execute the search
              */
+			setSearched(false);
 			setError(false);
 			setSearching(true);
 			setResultQuery(query);
@@ -89,6 +99,7 @@ const SearchComponent = () => {
 					setNewsItems(data);
 					if (!data.error) {
 						setSearching(false);
+						setSearched(true);
 						setQuery('');
 					}
 					else {
@@ -164,6 +175,20 @@ const SearchComponent = () => {
 	};
 
 	/**
+	 * Showing that no results were found
+	 */
+	const noResults = () => {
+		return (
+			<React.Fragment>
+				<div className='page-header'>
+					<h2 className='page-heading'>No search results</h2>
+					<p className=''>Query : {resultQuery}</p>
+				</div>
+			</React.Fragment>
+		);
+	};
+
+	/**
      * Showing search illustration when
      * page is empty
      */
@@ -197,6 +222,13 @@ const SearchComponent = () => {
              * Take search input
              */}
 			{searchInput()}
+
+			{/**
+			  * Show no results found if
+			  * newsItems is empty after
+			  * performing a search successfully
+			  */}
+			{!error && searched && newsItems.length < 1 && noResults()}
 
 			{/**
               * Show illustration
