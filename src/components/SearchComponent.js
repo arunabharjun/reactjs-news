@@ -48,7 +48,7 @@ const SearchComponent = () => {
 		 * previous search execution
 		 */
 		setStatus({
-			...values,
+			...status,
 			error: false,
 			searching: false,
 			searched: false
@@ -130,7 +130,7 @@ const SearchComponent = () => {
 					}
 					else {
 						/**
-						 * Is there is error in response
+						 * If there is error in response
 						 * reset all statuses
 						 * set error to true
 						 */
