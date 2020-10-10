@@ -91,6 +91,13 @@ const HeadLines = () => {
 	};
 
 	/**
+	 * Utility function to return current date
+	 */
+	const getCurrentDate = () => {
+		return moment(date).format('DD/MM/YYYY');
+	};
+
+	/**
      * Passing all the headlines to the 
      * NewsItemCard component individually
      */
@@ -102,13 +109,6 @@ const HeadLines = () => {
 				})}
 			</React.Fragment>
 		);
-	};
-
-	/**
-	 * Utility function to return current date
-	 */
-	const getCurrentDate = () => {
-		return moment(date).format('DD/MM/YYYY');
 	};
 
 	/**
