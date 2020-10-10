@@ -34,7 +34,7 @@ REACT_APP_NEWS_API_ENDPOINT_SEARCH = everything
 
 3. Then visit the following link
 
-[Login - News API](https://newsapi.org/account)
+[Account - News API](https://newsapi.org/account)
 
 4. Copy the "API Key"
 
