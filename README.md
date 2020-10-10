@@ -50,13 +50,13 @@ REACT_APP_NEWS_API_ENDPOINT_SEARCH = everything
 npm install
 ```
 
-2. Start the react app
+## 🖥 Viewing the app
+
+1. Start the react app
 
 ```bash
 npm start
 ```
-
-## 🖥 Viewing the app
 
 The app should have opened in your default browser, but if didn't, visit [http://localhost:3000/](http://localhost:3000/)
 
