@@ -2,6 +2,9 @@
  * Set Value
  */
 export const setLocalStorage = (key, value) => {
+	/**
+	 * Check if the code is running in a browser
+	 */
 	if (process.browser) {
 		try {
 			localStorage.setItem(key, JSON.stringify(value));
@@ -11,6 +14,10 @@ export const setLocalStorage = (key, value) => {
 			return false;
 		}
 	}
+
+	/**
+	 * Return false if not a browser
+	 */
 	return false;
 };
 
@@ -18,6 +25,9 @@ export const setLocalStorage = (key, value) => {
  * Remove Value
  */
 export const removeLocalStorage = (key) => {
+	/**
+	 * Check if the code is running in a browser
+	 */
 	if (process.browser) {
 		try {
 			localStorage.removeItem(key);
@@ -27,6 +37,9 @@ export const removeLocalStorage = (key) => {
 			return false;
 		}
 	}
+	/**
+	 * Return false if not a browser
+	 */
 	return false;
 };
 
@@ -34,6 +47,9 @@ export const removeLocalStorage = (key) => {
  * Get Value
  */
 export const getLocalStorage = (key) => {
+	/**
+	 * Check if the code is running in a browser
+	 */
 	if (process.browser) {
 		try {
 			if (localStorage.getItem(key)) {
@@ -47,5 +63,8 @@ export const getLocalStorage = (key) => {
 			return false;
 		}
 	}
+	/**
+	 * Return false if not a browser
+	 */
 	return false;
 };

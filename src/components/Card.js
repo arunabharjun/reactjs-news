@@ -3,6 +3,9 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { SearchIcon } from '../assets/Icons';
 
+/**
+ * A component to render the news item
+ */
 export const NewsItemCard = ({ children }) => {
 	/**
      * Destructuring children prop
@@ -98,6 +101,9 @@ export const NewsItemCard = ({ children }) => {
 	return <React.Fragment>{newsItem()}</React.Fragment>;
 };
 
+/**
+ * A component to mimic the search input field
+ */
 export const SearchButtonCard = () => {
 	/**
      * A card to act like a button
@@ -128,6 +134,10 @@ export const SearchButtonCard = () => {
 	return <React.Fragment>{searchBtnCard()}</React.Fragment>;
 };
 
+/**
+ * A component to show loading status
+ * while the news items load
+ */
 export const LoadingCard = () => {
 	/**
 	 * Showing 3 loading cards

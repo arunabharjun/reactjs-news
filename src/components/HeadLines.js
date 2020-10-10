@@ -14,25 +14,26 @@ const HeadLines = () => {
 	] = useState([]);
 
 	/**
-	 * State to check loading status
+	 * States to check the status
+	 * of loading and error
 	 */
 	const [
-		loading,
-		setLoading
-	] = useState(true);
+		status,
+		setStatus
+	] = useState({
+		loading: true,
+		error: false
+	});
+
+	/**
+	 * Destructuring status
+	 */
+	const { loading, error } = status;
 
 	/**
 	 * State to store current date
 	 */
 	const date = new Date();
-
-	/**
-	 * State to check error
-	 */
-	const [
-		error,
-		setError
-	] = useState(false);
 
 	useEffect(() => {
 		/**
@@ -49,18 +50,43 @@ const HeadLines = () => {
 		getHeadLines()
 			.then((data) => {
 				if (!data.error) {
+					/**
+					 * If there is no error in response,
+					 * set the data to headlines
+					 * and reset all statuses
+					 */
 					setHeadlines(data);
-					setLoading(false);
+					setStatus({
+						...status,
+						loading: false,
+						error: false
+					});
 				}
 				else {
-					setLoading(false);
-					setError(true);
+					/**
+					 * If there is error in response,
+					 * reset loading and set error to true
+					 */
+					setStatus({
+						...status,
+						loading: false,
+						error: true
+					});
 				}
 			})
 			.catch((error) => {
 				console.log(error);
-				setLoading(false);
-				setError(true);
+
+				/**
+				 * If it fails,
+				 * reset loading and 
+				 * set error to true
+				 */
+				setStatus({
+					...status,
+					loading: false,
+					error: true
+				});
 			});
 	};
 
@@ -79,6 +105,13 @@ const HeadLines = () => {
 	};
 
 	/**
+	 * Utility function to return current date
+	 */
+	const getCurrentDate = () => {
+		return moment(date).format('DD/MM/YYYY');
+	};
+
+	/**
 	 * Page header
 	 */
 	const header = () => {
@@ -86,19 +119,8 @@ const HeadLines = () => {
 			<React.Fragment>
 				<div className='page-header'>
 					<h2 className='page-heading'>Top 10 Headlines</h2>
-					<p className='block'>{moment(date).format('DD/MM/YYYY')}</p>
+					<p className='block'>{getCurrentDate()}</p>
 				</div>
-			</React.Fragment>
-		);
-	};
-
-	/**
-     * Show the user that there is some error
-     */
-	const errorSvg = () => {
-		return (
-			<React.Fragment>
-				<ShowError />
 			</React.Fragment>
 		);
 	};
@@ -119,9 +141,9 @@ const HeadLines = () => {
 			{!error && loading && <LoadingCard />}
 
 			{/**
-                * Show error if there is any
-                */}
-			{error && !loading && errorSvg()}
+			* Show error if there is any
+			*/}
+			{error && !loading && <ShowError />}
 
 			{/**
 			 * Show the headlines as soon as they load
