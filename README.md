@@ -67,7 +67,7 @@ The app should have opened in your default browser, but if didn't, visit [http:/
 3. Change theme (Dark/Light)
 4. Responsive design
 
-## 📱Screen Shots
+## 📱 Screen Shots
 
 ![](screens/1.png)
 ![](screens/2.png)
