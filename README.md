@@ -69,5 +69,5 @@ The app should have opened in your default browser, but if didn't, visit [http:/
 
 ## 📱Screen Shots
 
-[Screenshot 1](./screens/1.png "Screenshot 1")]
-[Screenshot 2](./screens/2.png "Screenshot 2")]
+[Screenshot 1](./screens/1.png "Screenshot 1")
+[Screenshot 2](./screens/2.png "Screenshot 2")
