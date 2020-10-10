@@ -47,7 +47,7 @@ REACT_APP_NEWS_API_ENDPOINT_SEARCH = everything
 1. Open terminal in the root directory and run the following command
 
 ```bash
-npm instal
+npm install
 ```
 
 2. Start the react app
