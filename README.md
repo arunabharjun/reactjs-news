@@ -1,7 +1,5 @@
 ## ▶️ Getting Started
 
----
-
 1. Open terminal in your project directory
 
 2. Clone the repo
@@ -26,8 +24,6 @@ REACT_APP_NEWS_API_ENDPOINT_SEARCH = everything
 
 ## 🔑 Creating your API key from [https://newsapi.org/](https://newsapi.org/)
 
----
-
 1. If you don't already have a an account, visit the following link and create one.
 
 [Register - News API](https://newsapi.org/register)
@@ -44,13 +40,9 @@ REACT_APP_NEWS_API_ENDPOINT_SEARCH = everything
 
 ## 🌐 Setting up the environment variable for API Key
 
----
-
 1. Go back to the root directory and in the ".env" file, replace "<YOUR_API_KEY_HERE>" with the API Key you copied from the previous step.
 
 ## ⬇️ Installing dependencies
-
----
 
 1. Open terminal in the root directory and run the following command
 
@@ -66,13 +58,9 @@ npm start
 
 ## 🖥 Viewing the app
 
----
-
 The app should have opened in your default browser, but if didn't, visit [http://localhost:3000/](http://localhost:3000/)
 
 ## 🌟 Features
-
----
 
 1. View top 10 headlines 
 2. Search news based
@@ -81,7 +69,5 @@ The app should have opened in your default browser, but if didn't, visit [http:/
 
 ## 📱Screen Shots
 
----
-
-[[/screens/1.png]]
-[[/screens/2.png]]
+[Screenshot 1](./screens/1.png "Screenshot 1")]
+[Screenshot 2](./screens/2.png "Screenshot 2")]
