@@ -1,6 +1,6 @@
 import React from 'react';
 import IllustrationBox from './IllustrationBox';
-import ErrorSvg from './illustrations/ErrorSvg';
+import ErrorSvg from '../assets/ErrorSvg';
 
 const ShowError = () => {
 	return (

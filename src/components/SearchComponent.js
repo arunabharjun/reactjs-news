@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { getSearchResult } from '../helpers/newsApi';
 import { LoadingCard, NewsItemCard } from './Card';
-import { SearchIcon } from './Icons';
+import { SearchIcon } from '../assets/Icons';
 import IllustrationBox from './IllustrationBox';
-import SearchSvg from './illustrations/SearchSvg';
+import SearchSvg from '../assets/SearchSvg';
 import ShowError from './ShowError';
 
 const SearchComponent = () => {
@@ -20,7 +20,8 @@ const SearchComponent = () => {
 	});
 
 	/**
-	 * States to check status of error, searching and searched
+	 * States to check status of error, 
+	 * searching and searched
 	 */
 	const [
 		status,
@@ -31,6 +32,9 @@ const SearchComponent = () => {
 		searched: false
 	});
 
+	/**
+	 * Destructuring values & status
+	 */
 	const { query, resultQuery, newsItems } = values;
 	const { error, searching, searched } = status;
 
@@ -39,12 +43,20 @@ const SearchComponent = () => {
      * in the search input field
      */
 	const handleChange = (value) => {
+		/**
+		 * Reset all status from
+		 * previous search execution
+		 */
 		setStatus({
 			...values,
 			error: false,
 			searching: false,
 			searched: false
 		});
+
+		/**
+		 * Set the query value
+		 */
 		setValues({
 			...values,
 			query: value
@@ -77,7 +89,7 @@ const SearchComponent = () => {
 		else {
 			/**
              * If query is not empty,
-             * execute the search
+             * set searching status to true
              */
 			setStatus({
 				...status,
@@ -86,15 +98,29 @@ const SearchComponent = () => {
 				searched: false
 			});
 
+			/**
+			 * Execute search
+			 */
 			getSearchResult(query)
 				.then((data) => {
-					setValues({
-						...values,
-						query: '',
-						resultQuery: query,
-						newsItems: data
-					});
 					if (!data.error) {
+						/**
+						 * If there is no error in response
+						 * Reset the search input
+						 * set result query to search query
+						 * set response data to newsItems
+						 */
+						setValues({
+							...values,
+							query: '',
+							resultQuery: query,
+							newsItems: data
+						});
+
+						/**
+						 * Reset all statuses
+						 * Set searched to true
+						 */
 						setStatus({
 							...status,
 							error: false,
@@ -103,6 +129,11 @@ const SearchComponent = () => {
 						});
 					}
 					else {
+						/**
+						 * Is there is error in response
+						 * reset all statuses
+						 * set error to true
+						 */
 						setStatus({
 							...status,
 							error: true,
@@ -113,6 +144,12 @@ const SearchComponent = () => {
 				})
 				.catch((error) => {
 					console.log(error);
+
+					/**
+					 * If this fails,
+					 * reset all statuses
+					 * set error to true
+					 */
 					setStatus({
 						...status,
 						error: true,
@@ -197,8 +234,8 @@ const SearchComponent = () => {
 	};
 
 	/**
-     * Showing search illustration when
-     * page is empty
+     * Showing search illustration 
+	 * when page is empty
      */
 	const searchSvg = () => {
 		return (
@@ -206,17 +243,6 @@ const SearchComponent = () => {
 				<IllustrationBox>
 					<SearchSvg />
 				</IllustrationBox>
-			</React.Fragment>
-		);
-	};
-
-	/**
-     * Show the user that there is some error
-     */
-	const errorSvg = () => {
-		return (
-			<React.Fragment>
-				<ShowError />
 			</React.Fragment>
 		);
 	};
@@ -251,7 +277,7 @@ const SearchComponent = () => {
 			{/**
                 * Show error if there is any
                 */}
-			{error && !searching && errorSvg()}
+			{error && !searching && <ShowError />}
 
 			{/**
              * Show search result

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LeftChevron } from './Icons';
+import { LeftChevron } from '../assets/Icons';
 
 const ArticleIframe = ({ url }) => {
 	/**

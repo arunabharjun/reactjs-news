@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { setThemeDark, setThemeLight } from '../helpers/theme';
 import { ThemeContext } from './ThemeContext';
-import { MoonIcon, SunIcon, SearchIcon } from './Icons';
+import { MoonIcon, SunIcon, SearchIcon } from '../assets/Icons';
 
 const NavBar = () => {
 	/**
