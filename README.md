@@ -1,68 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ▶️ Getting Started
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+1. Open terminal in your project directory
 
-### `npm start`
+2. Clone the repo
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+git clone https://github.com/arunabharjun/reactjs-news.git
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+3. In your root directory, create a new file with the name ".env" and copy the following in that file
 
-### `npm test`
+```
+REACT_APP_THEME_KEY = darkMode
+REACT_APP_NEWS_API_KEY = <YOUR_API_KEY_HERE>
+REACT_APP_NEWS_API = https://newsapi.org/v2
+REACT_APP_NEWS_API_ENDPOINT_HEADLINES = top-headlines
+REACT_APP_NEWS_API_ENDPOINT_SEARCH = everything
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Notice the **"REACT_APP_NEWS_API_KEY"** says **<YOUR_API_KEY_HERE>**
 
-### `npm run build`
+5. Lets create one.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🔑 Creating your API key from [https://newsapi.org/](https://newsapi.org/)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. If you don't already have a an account, visit the following link and create one.
 
-### `npm run eject`
+[Register - News API](https://newsapi.org/register)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. If you have an account, visit the following link and login
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Login - News API](https://newsapi.org/login)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. Then visit the following link
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[Login - News API](https://newsapi.org/account)
 
-## Learn More
+4. Copy the "API Key"
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🌐 Setting up the environment variable for API Key
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+1. Go back to the root directory and in the ".env" file, replace "<YOUR_API_KEY_HERE>" with the API Key you copied from the previous step.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## ⬇️ Installing dependencies
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+1. Open terminal in the root directory and run the following command
 
-### Making a Progressive Web App
+```bash
+npm instal
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+2. Start the react app
 
-### Advanced Configuration
+```bash
+npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## 🖥 Viewing the app
 
-### Deployment
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+The app should have opened in your default browser, but if didn't, visit [http://localhost:3000/](http://localhost:3000/)
 
-### `npm run build` fails to minify
+## 🌟 Features
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+---
+
+1. View top 10 headlines 
+2. Search news based
+3. Change theme (Dark/Light)
+4. Responsive design
+
+## 📱Screen Shots
+
+---
+
+[[/screens/1.png]]
+[[/screens/2.png]]
