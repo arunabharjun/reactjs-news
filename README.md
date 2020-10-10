@@ -63,7 +63,7 @@ The app should have opened in your default browser, but if didn't, visit [http:/
 ## 🌟 Features
 
 1. View top 10 headlines 
-2. Search news based
+2. Search news
 3. Change theme (Dark/Light)
 4. Responsive design
 
