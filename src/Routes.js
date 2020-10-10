@@ -12,6 +12,7 @@ const Routes = () => {
 				<Route path='/' exact component={Home} />
 				<Route path='/article' exact component={Article} />
 				<Route path='/search' exact component={Search} />
+
 				{/**
 				 * 404 : Page not found error page
 				 */}

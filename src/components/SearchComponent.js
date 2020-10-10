@@ -8,61 +8,47 @@ import ShowError from './ShowError';
 
 const SearchComponent = () => {
 	/**
-     * State for storing user query
-     */
-	const [
-		query,
-		setQuery
-	] = useState('');
-
-	/**
-     * State to store the search results
-     */
-	const [
-		newsItems,
-		setNewsItems
-	] = useState([]);
-
-	/**
-     * State to check searching status
-     */
-	const [
-		searching,
-		setSearching
-	] = useState(false);
-
-	/**
-     * State to check errors
-     */
-	const [
-		error,
-		setError
-	] = useState(false);
-
-	/**
-	 * Check if search was performed
+	 * States to store the query & search result
 	 */
-
 	const [
-		searched,
-		setSearched
-	] = useState(false);
+		values,
+		setValues
+	] = useState({
+		query: '',
+		resultQuery: '',
+		newsItems: []
+	});
 
 	/**
-     * State for result query
-     */
+	 * States to check status of error, searching and searched
+	 */
 	const [
-		resultQuery,
-		setResultQuery
-	] = useState('');
+		status,
+		setStatus
+	] = useState({
+		error: false,
+		searching: false,
+		searched: false
+	});
+
+	const { query, resultQuery, newsItems } = values;
+	const { error, searching, searched } = status;
 
 	/**
      * Utility function to handle changes
      * in the search input field
      */
 	const handleChange = (value) => {
-		setError(false);
-		setQuery(value);
+		setStatus({
+			...values,
+			error: false,
+			searching: false,
+			searched: false
+		});
+		setValues({
+			...values,
+			query: value
+		});
 	};
 
 	/**
@@ -83,34 +69,56 @@ const SearchComponent = () => {
 			/**
              * if query is empty, reset query
              */
-			setQuery('');
+			setValues({
+				...values,
+				query: ''
+			});
 		}
 		else {
 			/**
              * If query is not empty,
              * execute the search
              */
-			setSearched(false);
-			setError(false);
-			setSearching(true);
-			setResultQuery(query);
+			setStatus({
+				...status,
+				error: false,
+				searching: true,
+				searched: false
+			});
+
 			getSearchResult(query)
 				.then((data) => {
-					setNewsItems(data);
+					setValues({
+						...values,
+						query: '',
+						resultQuery: query,
+						newsItems: data
+					});
 					if (!data.error) {
-						setSearching(false);
-						setSearched(true);
-						setQuery('');
+						setStatus({
+							...status,
+							error: false,
+							searching: false,
+							searched: true
+						});
 					}
 					else {
-						setSearching(false);
-						setError(true);
+						setStatus({
+							...status,
+							error: true,
+							searching: false,
+							searched: false
+						});
 					}
 				})
 				.catch((error) => {
 					console.log(error);
-					setSearching(false);
-					setError(true);
+					setStatus({
+						...status,
+						error: true,
+						searching: false,
+						searched: false
+					});
 				});
 		}
 	};
