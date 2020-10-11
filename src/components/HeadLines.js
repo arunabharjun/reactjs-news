@@ -41,7 +41,7 @@ const HeadLines = () => {
 		 * as soon as the page loads
 		 */
 		initHeadlines();
-	}, []);
+	});
 
 	/**
 	 * Utility fuction to initialise Head Lines
