@@ -112,7 +112,7 @@ export const SearchButtonCard = () => {
 	const searchBtnCard = () => {
 		return (
 			<React.Fragment>
-				<div className='search-btn-card'>
+				<div data-testid='news-card' className='search-btn-card'>
 					<Link to={'/search'}>
 						<div className='search-btn-card-body'>
 							<p className=''>
