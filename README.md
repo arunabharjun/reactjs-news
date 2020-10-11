@@ -24,7 +24,7 @@ REACT_APP_NEWS_API_ENDPOINT_SEARCH = everything
 
 ## 🔑 Creating your API key from [https://newsapi.org/](https://newsapi.org/)
 
-1. If you don't already have a an account, visit the following link and create one.
+1. If you don't already have an account, visit the following link and create one.
 
 [Register - News API](https://newsapi.org/register)
 
