@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { getSearchResult } from '../helpers/newsApi';
 import { LoadingCard, NewsItemCard } from './core/Card';
 import { SearchIcon } from '../assets/Icons';
 import IllustrationBox from './core/IllustrationBox';
 import SearchSvg from '../assets/SearchSvg';
 import ShowError from './core/ShowError';
 
-const SearchComponent = () => {
+const SearchComponent = ({ executeSearchWith }) => {
 	/**
 	 * States to store the query & search result
 	 */
@@ -101,7 +100,7 @@ const SearchComponent = () => {
 			/**
 			 * Execute search
 			 */
-			getSearchResult(query)
+			executeSearchWith(query)
 				.then((data) => {
 					if (!data.error) {
 						/**
@@ -181,7 +180,11 @@ const SearchComponent = () => {
 							}}
 						/>
 
-						<button type='submit' disabled={searching}>
+						<button
+							type='submit'
+							data-testid='search-button'
+							disabled={searching}
+						>
 							<SearchIcon />
 						</button>
 					</form>
