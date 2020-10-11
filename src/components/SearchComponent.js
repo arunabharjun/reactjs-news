@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { getSearchResult } from '../helpers/newsApi';
-import { LoadingCard, NewsItemCard } from './Card';
+import { LoadingCard, NewsItemCard } from './core/Card';
 import { SearchIcon } from '../assets/Icons';
-import IllustrationBox from './IllustrationBox';
+import IllustrationBox from './core/IllustrationBox';
 import SearchSvg from '../assets/SearchSvg';
-import ShowError from './ShowError';
+import ShowError from './core/ShowError';
 
 const SearchComponent = () => {
 	/**

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getHeadLines } from '../helpers/newsApi';
-import { LoadingCard, NewsItemCard } from './Card';
+import { LoadingCard, NewsItemCard } from './core/Card';
 import moment from 'moment';
-import ShowError from './ShowError';
+import ShowError from './core/ShowError';
 
 const HeadLines = () => {
 	/**

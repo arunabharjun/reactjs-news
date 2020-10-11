@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleIframe from '../components/ArticleIframe';
+import ArticleIframe from '../components/core/ArticleIframe';
 import Layout from '../components/Layout';
 
 const Article = (props) => {

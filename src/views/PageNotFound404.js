@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from '../components/Footer';
+import Footer from '../components/core/Footer';
 import Layout from '../components/Layout';
-import PageNotFoundComponent from '../components/PageNotFoundComponent';
+import PageNotFoundComponent from '../components/core/PageNotFoundComponent';
 
 const PageNotFound404 = () => {
 	return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import { SearchIcon } from '../assets/Icons';
+import { SearchIcon } from '../../assets/Icons';
 
 /**
  * A component to render the news item
