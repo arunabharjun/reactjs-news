@@ -1,3 +1,6 @@
+# News Search & Browsing app using React.js
+![](screens/ScreenShot.png)
+
 ## ▶️ Getting Started
 
 1. Open terminal in your project directory
@@ -65,10 +68,5 @@ The app should have opened in your default browser, but if didn't, visit [http:/
 1. View top 10 headlines 
 2. Search news
 3. Change theme (Dark/Light)
-5. Custom 404 error page
-4. Responsive design
-
-## 📱 Screen Shots
-
-![](screens/1.png)
-![](screens/2.png)
+4. Custom 404 error page
+5. Responsive design
