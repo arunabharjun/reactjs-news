@@ -61,7 +61,7 @@ npm install
 npm start
 ```
 
-The app should have opened in your default browser, but if didn't, visit [http://localhost:3000/](http://localhost:3000/)
+The app should have opened in your default browser, but if it didn't, visit [http://localhost:3000/](http://localhost:3000/)
 
 ## 🌟 Features
 
